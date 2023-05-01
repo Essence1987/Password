@@ -1,6 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function generatePassword(passLg, incLC, incUC, incNum,incSpc) {
+
+}
 // Write password to the #password input
 function writePassword() {
 
@@ -10,7 +13,7 @@ function writePassword() {
   var incNum = confirm("includ numbers?")
   var incSpc = confirm("Include special characters?")
 
-  var password = generatePassword(passLg, incLC, incUC, incNum, incSpc );
+  var password = generatePassword(passLg, incLC, incUC, incNum, incSpc);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
