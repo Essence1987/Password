@@ -3,6 +3,37 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword(passLg, incLC, incUC, incNum,incSpc) {
 
+  var LC = "abcdefghijklmnopqrstuvwxyz";
+  var UC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var Num = "0123456789";
+  var SC = "!!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
+  var characters = "";
+
+  if (incLC) {
+    characters += LC;
+  }
+  
+  if (incUC) {
+    characters += UC;
+  }
+
+  if (incNum) {
+    characters += Num;
+  }
+
+  if (incSpc) {
+    characters += SC;
+  }
+
+  var password = "";
+
+  for (var i = 0; i <passLg; i++) {
+    var randomIndex = Math.floor(Math.random() *characters.length);
+    password += characters[randomIndex];
+  }
+
+  return password;
 }
 // Write password to the #password input
 function writePassword() {
