@@ -2,41 +2,41 @@
 var generateBtn = document.querySelector("#generate");
 
 // Generates a password based on user inputs
-function generatePassword(passLg, incLC, incUC, incNum,incSpc) {
+function generatePassword(passLength, incLowerCase, incUpperCase, incNumbers,incSpecial) {
 
   // Define strings containing each type of character
-  var LC = "abcdefghijklmnopqrstuvwxyz";
-  var UC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var Num = "0123456789";
-  var SC = "!!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  var LowerCase = "abcdefghijklmnopqrstuvwxyz";
+  var UpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var Numbers = "0123456789";
+  var Special = "!!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
   // Create a string of chracters based on user inputs
   var characters = "";
 
   // if user selects Lowercase letters, add them to the character string
-  if (incLC) {
-    characters += LC;
+  if (incLowerCase) {
+    characters += LowerCase;
   }
   
   // if user selects Uppercase letters, add them to the character string
-  if (incUC) {
-    characters += UC;
+  if (incUpperCase) {
+    characters += UpperCase;
   }
 
   // if user selects numbers, add them to the character string
-  if (incNum) {
-    characters += Num;
+  if (incNumbers) {
+    characters += Numbers;
   }
 
   // if user selects special characters, add them to the character string
-  if (incSpc) {
-    characters += SC;
+  if (incSpecial) {
+    characters += Special;
   }
 
   //Generate random password from selected characters
   var password = "";
 
-  for (var i = 0; i <passLg; i++) {
+  for (var i = 0; i <passLength; i++) {
     var randomIndex = Math.floor(Math.random() *characters.length);
     password += characters[randomIndex];
   }
@@ -49,28 +49,28 @@ function generatePassword(passLg, incLC, incUC, incNum,incSpc) {
 function writePassword() {
 
   // Prompts user for password length
-  var passLg = prompt("How many characters would you like your password to be?")
+  var passLength = prompt("How many characters would you like your password to be?")
 
   // Ensures password length is within specafied range
-  if (passLg < 8 || passLg > 128) {
-    alert("Password length must be between 8 and 128.");
+  if (isNaN(passLength) || passLength < 8 || passLength > 128) {
+    alert("Password length must be a number between 8 and 128.");
     return;
   }
 
   // Prompts user for which character types to include in password 
-  var incLC = confirm("Include lowercase letters?")
-  var incUC = confirm("Include uppercase letters?")
-  var incNum = confirm("includ numbers?")
-  var incSpc = confirm("Include special characters?")
+  var incLowerCase = confirm("Include lowercase letters?")
+  var incUpperCase = confirm("Include uppercase letters?")
+  var incNumbers = confirm("include numbers?")
+  var incSpecial = confirm("Include special characters?")
 
   // Ensure at least one character type is selected
-  if (!incLC && !incUC && !incNum && !incSpc) {
+  if (!incLowerCase && !incUpperCase && !incNumbers && !incSpecial) {
     alert("At least one character type must be selected.");
     return;
   }
 
   // Generates a password based on user responces
-  var password = generatePassword(passLg, incLC, incUC, incNum, incSpc);
+  var password = generatePassword(passLength, incLowerCase, incUpperCase, incNumbers, incSpecial);
 
   var passwordText = document.querySelector("#password");
 
