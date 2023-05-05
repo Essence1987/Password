@@ -10,7 +10,7 @@ The following image shows the web application's appearance and functionality:
 
 ![The Password Generator application displays a red button to "Generate Password".](./assets/PassWordGenerator.png)
 
-The following <a href="https://essence1987.github.io/SoloProject/">Link</a> takes you to the page.
+The following <a href="https://essence1987.github.io/Password/">Link</a> takes you to the page.
 
 **Note** This mockup may not fully match the current page's functionality.
 
